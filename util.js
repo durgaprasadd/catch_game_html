@@ -2,8 +2,8 @@ let randomNumber = function(number) {
   return Math.floor(Math.random() * number);
 };
 
-let youWon = function(timeInterval) {
-  let timeTaken = (count * timeInterval) / 1000;
+let youWon = function(timeGap) {
+  let timeTaken = (count * timeGap) / 1000;
   let message = 'you won and time taken : ' + timeTaken + ' seconds';
   alert(message);
   count = 0;
@@ -16,20 +16,17 @@ const randomPixels = function(number) {
   return `${randomNumber(number)}px`;
 };
 
-let changeColorAndPosition = function(timeInterval) {
+let changeColorAndPosition = function(timeGap) {
   document.getElementById('main').style.color = randomColour();
   document.getElementById('main').style.background = randomColour();
   document.getElementById('main').style.left = randomPixels(1230);
   document.getElementById('main').style.top = randomPixels(670);
-  document.getElementById('main').onclick = youWon.bind(timeInterval);
+  document.getElementById('main').onclick = youWon.bind(null, timeGap);
   count++;
 };
 let count = 0;
 
 let randomPositionAndColour = function() {
-  let timeInterval = 500;
-  let interval = setInterval(
-    changeColorAndPosition.bind(null, timeInterval),
-    timeInterval
-  );
+  let timeGap = 500;
+  setInterval(changeColorAndPosition.bind(null, timeGap), timeGap);
 };

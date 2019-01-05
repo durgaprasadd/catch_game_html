@@ -4,7 +4,8 @@ let randomNumber = function(number) {
 
 let youWon = function(timeInterval) {
   let timeTaken = (count * timeInterval) / 1000;
-  alert('you won and time taken : ' + timeTaken + ' seconds');
+  let message = 'you won and time taken : ' + timeTaken + ' seconds';
+  alert(message);
   count = 0;
 };
 
